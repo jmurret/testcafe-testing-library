@@ -51,7 +51,7 @@ test('getAllByText', async t => {
   await t.click(chans.nth(0))
 })
 
-test.skip('getAllByText (broken)', async t => {
+test('getAllByText (broken)', async t => {
   const chans = getAllByText(/^Jackie Chan/)
   const count = await chans.count
 
