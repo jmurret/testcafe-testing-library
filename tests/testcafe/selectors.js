@@ -51,6 +51,16 @@ test('getAllByText', async t => {
   await t.click(chans.nth(0))
 })
 
+test.skip('getAllByText (broken)', async t => {
+  const chans = getAllByText(/^Jackie Chan/)
+  const count = await chans.count
+
+  await t.expect(count).eql(2)
+
+  await t.click(chans.nth(0))
+  await t.click(chans.nth(1))
+})
+
 test('queryAllByText', async t => {
   await t.expect(queryAllByText('Button Text').exists).ok()
   await t.expect(queryAllByText('Non-existing Button Text').exists).notOk()
