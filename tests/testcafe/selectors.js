@@ -16,11 +16,17 @@ fixture`selectors`
   .page`http://localhost:13370`
 
 test('getByPlaceHolderText', async t => {
-  await t.typeText(
-    getByPlaceholderText('Placeholder Text'),
-    'Hello Placeholder',
-  )
+  const searchText = getByPlaceholderText('Placeholder Text');
+
+  await t
+    .expect(searchText.exists)
+    .ok('Search input exists')
+    .typeText(
+      searchText,
+      'Hello Placeholder',
+    )
 })
+
 test('getByText', async t => {
   await t.click(getByText('getByText'))
 })
